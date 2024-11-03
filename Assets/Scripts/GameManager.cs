@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     float secondsLeft;
 
 
+    public float SecondsLeft { get { return secondsLeft; } }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         secondsLeft = secondsStart - Time.timeSinceLevelLoad;
-        Debug.Log(secondsLeft);
+        
 
         
     }
