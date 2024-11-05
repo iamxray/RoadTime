@@ -9,7 +9,9 @@ public class EnemyMain : MonoBehaviour
     [SerializeField]
     float moveSpeedHorizontal = 5.0f;
 
-    
+    [SerializeField]
+
+    Vector3 moveDirection;
 
     
     
@@ -25,7 +27,7 @@ public class EnemyMain : MonoBehaviour
     void Update()
     {
         
-        transform.Translate(Vector3.left * moveSpeedHorizontal * Time.deltaTime);
+        transform.Translate(moveDirection * moveSpeedHorizontal * Time.deltaTime);
 
               
     }

@@ -44,5 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f19eb64c55b9f4482f5854bcf0c658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2413277358188010027, guid: 9c64df3c1a7d92445a8bb2ab78f33225, type: 3}
+  finish: {fileID: 2323548928556817147, guid: da5ecfb4519c26f449f944ab827bf444, type: 3}
+  enemiesToPool: {fileID: 5013181063681980266, guid: a5855a66ff17654409e8256c91903a63, type: 3}
+  amountToPool: 10
   secondsStart: 30
   secondsLeft: 0
+  isGameOver: 0
+  isGameWin: 0
+  isGameActive: 1
+  isGamePaused: 0

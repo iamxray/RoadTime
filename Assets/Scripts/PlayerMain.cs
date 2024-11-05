@@ -14,12 +14,15 @@ public class PlayerMain : MonoBehaviour
     float inputHorizontal;
     float inputVertical;
 
+    GameManager gameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        
-        
+
+        gameManager = FindAnyObjectByType<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class PlayerMain : MonoBehaviour
         inputHorizontal = Input.GetAxis("Horizontal");
         if (inputHorizontal != 0) 
             {
-            Debug.Log(inputHorizontal);
+            
                 transform.Translate(Vector3.right * inputHorizontal * moveSpeedHorizontal * Time.deltaTime);
                 
         }
@@ -36,14 +39,28 @@ public class PlayerMain : MonoBehaviour
         inputVertical = Input.GetAxis("Vertical");
         if (inputVertical != 0)
         {
-            Debug.Log(inputVertical);
+            
             transform.Translate(Vector3.forward * inputVertical * moveSpeedVertical * Time.deltaTime);
 
         }
     }
 
-    
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            gameManager.GameWin();
+            
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameManager.GameOver();
+        }
 
-    
+
+
+    }
+
+
+
 }
