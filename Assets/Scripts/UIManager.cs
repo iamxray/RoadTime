@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class UIManager : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+        if (gameManager == null)
+        {
+            Debug.LogError("GameManager not found in the scene!");
+        }
     }
 
         // Update is called once per frame
@@ -66,6 +71,7 @@ public class UIManager : MonoBehaviour
 
     public void GamePauseMethod()
     {
+        Debug.Log("Pause method");
         if (gameManager.IsGamePaused)
         {
             restartButton.gameObject.SetActive(true);
@@ -119,7 +125,7 @@ public class UIManager : MonoBehaviour
 
     public void GameActiveMethod()
     {
-        gameManager.IsGameActive = true;
+        //gameManager.IsGameActive = true;
         restartButton.gameObject.SetActive(false);
         resumeButton.gameObject.SetActive(false);
         menuButton.gameObject.SetActive(false);
@@ -139,6 +145,21 @@ public class UIManager : MonoBehaviour
     public void Exit()
     {
         //quit
+    }
+    public void NextLevel()
+    {
+        UnityEngine.SceneManagement.Scene scene = SceneManager.GetActiveScene(); ;
+        
+        int sceneToLoad = scene.buildIndex + 1;
+
+        if (sceneToLoad < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            Debug.LogWarning("No next scene available! You are at the last scene.");
+        }
     }
 
 
