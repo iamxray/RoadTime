@@ -13,8 +13,8 @@ public class EnemyMain : MonoBehaviour
 
     Vector3 moveDirection;
 
-    
-    
+    float endPointX = 25.0f;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,9 +26,22 @@ public class EnemyMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        transform.Translate(moveDirection * moveSpeedHorizontal * Time.deltaTime);
 
-              
+        MoveForward();
+
+        if (transform.position.x < -endPointX || transform.position.x > endPointX)
+        {
+
+            gameObject.SetActive(false);
+
+        }
+
+
     }
+
+    protected virtual void MoveForward() 
+    {
+        transform.Translate(moveDirection * moveSpeedHorizontal * Time.deltaTime);
+    }
+
 }

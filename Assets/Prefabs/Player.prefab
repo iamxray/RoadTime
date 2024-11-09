@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3170164265394346274}
   - component: {fileID: 3076505528468585797}
   - component: {fileID: 4303695341202304192}
-  - component: {fileID: 4954799204817037672}
   - component: {fileID: 9019897827846276545}
   - component: {fileID: 2329697986237024306}
+  - component: {fileID: 3573434001167982305}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -89,29 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4954799204817037672
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2413277358188010027}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9019897827846276545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c97c729044284e4fab84a8371fcea1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedHorizontal: 5
-  moveSpeedVertical: 4
+  moveSpeedHorizontal: 8
+  moveSpeedVertical: 6
 --- !u!54 &2329697986237024306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,5 +128,26 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3573434001167982305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2413277358188010027}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

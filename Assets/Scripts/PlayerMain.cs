@@ -6,13 +6,13 @@ public class PlayerMain : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField]
-    float moveSpeedHorizontal = 5.0f;
+    float moveSpeed = 5.0f;
 
-    [SerializeField]
-    float moveSpeedVertical = 4.0f;
+
 
     float inputHorizontal;
     float inputVertical;
+    Vector3 direction;
 
     GameManager gameManager;
 
@@ -28,20 +28,20 @@ public class PlayerMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputHorizontal = Input.GetAxis("Horizontal");
-        if (inputHorizontal != 0) 
-            {
-            
-                transform.Translate(Vector3.right * inputHorizontal * moveSpeedHorizontal * Time.deltaTime);
-                
-        }
+        // Set the movement direction (e.g., randomly or towards a target)
+        direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        inputVertical = Input.GetAxis("Vertical");
-        if (inputVertical != 0)
+        if (direction != Vector3.zero)
         {
-            
-            transform.Translate(Vector3.forward * inputVertical * moveSpeedVertical * Time.deltaTime);
+            // Normalize the direction vector
+            direction.Normalize();
 
+            // Rotate the GameObject to face the direction
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+
+            // Move the GameObject in the direction
+            transform.position += direction * moveSpeed * Time.deltaTime;
         }
     }
 

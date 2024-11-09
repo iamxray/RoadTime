@@ -9,10 +9,11 @@ public class ObjectPooler : MonoBehaviour
     List<GameObject> enemies;
 
     [SerializeField]
-    GameObject enemiesToPool;
+    List<GameObject> enemiesToPool;
+    
 
     [SerializeField]
-    int amountToPool = 10;
+    int amountToPool = 20;
 
     //float endPointX = -25.0f;
 
@@ -33,7 +34,7 @@ public class ObjectPooler : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
         {
-            tmp = Instantiate(enemiesToPool);
+            tmp = Instantiate(enemiesToPool[Random.Range(0, enemiesToPool.Count)]);
             tmp.SetActive(false);
             enemies.Add(tmp);
         }
@@ -42,8 +43,7 @@ public class ObjectPooler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //foreach (GameObject enemy in enemies)
-        //{
+        
 
 
         //    if (enemy.transform.position.x < endPointX)

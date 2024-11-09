@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     TMP_Text timer;
 
     [SerializeField]
+    TMP_Text highScoreTable;
+
+    [SerializeField]
     TMP_Text score;
 
     [SerializeField]
@@ -41,6 +44,8 @@ public class UIManager : MonoBehaviour
     Button nextLevelButton;
 
     GameManager gameManager;
+    ScoreManager scoreManager;
+
 
     string time;
 
@@ -53,10 +58,25 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
         if (gameManager == null)
         {
             Debug.LogError("GameManager not found in the scene!");
         }
+
+
+
+        highScoreTable.text = "High Score: \n" +
+            "1. " + scoreManager.hightScoreTable[0].ToString() + "\n" +
+            "2. " + scoreManager.hightScoreTable[1].ToString() + "\n" +
+            "3. " + scoreManager.hightScoreTable[2].ToString() + "\n" +
+            "4. " + scoreManager.hightScoreTable[3].ToString() + "\n" +
+            "5. " + scoreManager.hightScoreTable[4].ToString() + "\n" +
+            "6. " + scoreManager.hightScoreTable[5].ToString() + "\n" +
+            "7. " + scoreManager.hightScoreTable[6].ToString() + "\n" +
+            "8. " + scoreManager.hightScoreTable[7].ToString() + "\n" +
+            "9. " + scoreManager.hightScoreTable[8].ToString() + "\n" +
+            "10. " + scoreManager.hightScoreTable[9].ToString();
     }
 
         // Update is called once per frame
